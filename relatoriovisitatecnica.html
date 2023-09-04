@@ -8,34 +8,20 @@
     </style>
 </head>
 <body>
-    <h1 class="titulo-com-fundo">Título com Fundo Coloriido</h1>
-    
-    <p>No dia 09 de agosto de 2023, os alunos do Campus Vilhena realizaram uma visita no Instituto Federal de Rondônia - Campus Colorado, com a chegada marcada às 10 horas e a saída às 16 horas.</p>
-    <p>O objetivo da visita técnica foi proporcionar aos alunos uma experiência na área produtiva de agronomia. Os alunos puderam observar, de perto, os processos de cultivo de vegetais e criação de animais, pelos quais em cada lugar visitado era explicado os processos de criação e estudos realizados voltados para estas áreas.</p>
-    <p>A visita técnica teve início às 10 horas, após a chegada, os alunos foram liberados para o almoço. Em seguida, foram apresentados os projetos desenvolvidos no local, como a oficina de fotografia, por exemplo, onde os alunos deveriam tirar fotografias ao passear pelo Campus.</p>
-    <p>Portanto, logo os alunos foram liberados da palestra para conhecerem o local e aprenderem um pouco mais sobre os estudos proporcionados no Campus de Colorado, as áreas visitadas foram a produção vegetal, onde os estudantes tinham acesso ao solo e ao cultivo de vegetais, além da área de produção animal, onde os alunos visitaram a área de criação de bovinos, suínos e aves. Eles puderam conhecer os diferentes tipos de instalações e equipamentos utilizados para a criação desses animais.</p>
-    <p>A visita técnica foi encerrada às 16 horas, sendo registrada uma fotografia de toda a turma após a visita, juntamente com um agradecimento por proporcionar um dia bastante interessante para os alunos devido aos conhecimentos transmitidos pelo Campus Colorado.</p>
-    
-<div class="gallery">
-  <img src="fotos/foto1.jpg" alt="foto1" onclick="openModal();currentSlide(1)" />
-  <img src="fotos/foto2.jpg" alt="foto2" onclick="openModal();currentSlide(2)" />
-  <img src="imagem3.jpg" alt="Imagem 3" onclick="openModal();currentSlide(3)" />
-  <img src="imagem4.jpg" alt="Imagem 4" onclick="openModal();currentSlide(4)" />
-  <img src="imagem5.jpg" alt="Imagem 5" onclick="openModal();currentSlide(5)" />
-  <img src="imagem6.jpg" alt="Imagem 6" onclick="openModal();currentSlide(6)" />
-  <img src="imagem7.jpg" alt="Imagem 7" onclick="openModal();currentSlide(7)" />
-  <img src="imagem8.jpg" alt="Imagem 8" onclick="openModal();currentSlide(8)" />
-  <img src="imagem9.jpg" alt="Imagem 9" onclick="openModal();currentSlide(9)" />
-  <img src="imagem10.jpg" alt="Imagem 10" onclick="openModal();currentSlide(10)" />
-</div>
+   <h1>Relatório de Visita Técnica</h1>
 
-<div id="myModal" class="modal">
-  <span class="modal-prev" onclick="plusSlides(-1)">&#10094;</span>
-  <span class="modal-next" onclick="plusSlides(1)">&#10095;</span>
-  <div class="modal-content">
-    <img id="modalImage" />
-  </div>
-</div>
-</body>
+    <div class="gallery">
+        <!-- Imagens da galeria -->
+        <img src="fotos/foto1.jpg" onclick="openModal('imagem1.jpg')" alt="Imagem 1">
+        <img src="imagem2.jpg" onclick="openModal('imagem2.jpg')" alt="Imagem 2">
+        <img src="imagem3.jpg" onclick="openModal('imagem3.jpg')" alt="Imagem 3">
+        <!-- Adicione as imagens restantes aqui -->
+
+        <!-- Modal de imagem ampliada -->
+        <div id="modal">
+            <span onclick="closeModal()" id="close-modal">&times;</span>
+            <img id="modal-content">
+        </div>
+    </div>
+    </body>
 </html>
-
