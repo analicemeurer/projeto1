@@ -1,27 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Relatório de Visita Técnica</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-    <style>
-    </style>
+  <meta charset="UTF-8">
+  <title>Relatório de Visita Técnica</title>
+  <style>
+    .relatorio {
+      width: 100%;
+      height: 100%;
+    }
+    .titulo {
+      color: #000;
+      background-color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .galeria {
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+    }
+    .imagem {
+      float: left;
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+    }
+    .imagem:hover {
+      opacity: 0.7;
+    }
+    .next {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+    }
+    .prev {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-   <h1>Relatório de Visita Técnica</h1>
-
-    <div class="gallery">
-        <!-- Imagens da galeria -->
-        <img src="fotos/foto1.jpg" onclick="openModal('imagem1.jpg')" alt="Imagem 1">
-        <img src="imagem2.jpg" onclick="openModal('imagem2.jpg')" alt="Imagem 2">
-        <img src="imagem3.jpg" onclick="openModal('imagem3.jpg')" alt="Imagem 3">
-        <!-- Adicione as imagens restantes aqui -->
-
-        <!-- Modal de imagem ampliada -->
-        <div id="modal">
-            <span onclick="closeModal()" id="close-modal">&times;</span>
-            <img id="modal-content">
-        </div>
+  <div class="relatorio">
+    <h1 class="titulo">Relatório de Visita Técnica</h1>
+    <div class="galeria">
+      <img src="fotos/foto1.jpg" class="imagem" alt="Imagem 1">
+      <img src="fotos/foto2.jpg" class="imagem" alt="Imagem 2">
+      <img src="fotos/foto3.jpg" class="imagem" alt="Imagem 3">
+      <img src="img/imagem-4.jpg" class="imagem" alt="Imagem 4">
+      <img src="img/imagem-5.jpg" class="imagem" alt="Imagem 5">
+      <img src="img/imagem-6.jpg" class="imagem" alt="Imagem 6">
+      <img src="img/imagem-7.jpg" class="imagem" alt="Imagem 7">
+      <img src="img/imagem-8.jpg" class="imagem" alt="Imagem 8">
+      <img src="img/imagem-9.jpg" class="imagem" alt="Imagem 9">
+      <img src="img/imagem-10.jpg" class="imagem" alt="Imagem 10">
     </div>
-    </body>
+    <a href="#" class="prev"><img src="img/icone-anterior.png" alt="Anterior"></a>
+    <a href="#" class="next"><img src="img/icone-proximo.png" alt="Próximo"></a>
+  </div>
+</body>
 </html>
+
