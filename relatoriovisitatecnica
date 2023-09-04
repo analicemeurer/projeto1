@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Visita Técnica</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h1>Relatório de Visita Técnica</h1>
+    <p>No dia 09 de agosto de 2023, os alunos do Campus Vilhena realizaram uma visita no Instituto Federal de Rondônia - Campus Colorado, com a chegada marcada às 10 horas e a saída às 16 horas.</p>
+    <p>O objetivo da visita técnica foi proporcionar aos alunos uma experiência na área produtiva de agronomia. Os alunos puderam observar, de perto, os processos de cultivo de vegetais e criação de animais, pelos quais em cada lugar visitado era explicado os processos de criação e estudos realizados voltados para estas áreas.</p>
+    <p>A visita técnica teve início às 10 horas, após a chegada, os alunos foram liberados para o almoço. Em seguida, foram apresentados os projetos desenvolvidos no local, como a oficina de fotografia, por exemplo, onde os alunos deveriam tirar fotografias ao passear pelo Campus.</p>
+    <p>Portanto, logo os alunos foram liberados da palestra para conhecerem o local e aprenderem um pouco mais sobre os estudos proporcionados no Campus de Colorado, as áreas visitadas foram a produção vegetal, onde os estudantes tinham acesso ao solo e ao cultivo de vegetais, além da área de produção animal, onde os alunos visitaram a área de criação de bovinos, suínos e aves. Eles puderam conhecer os diferentes tipos de instalações e equipamentos utilizados para a criação desses animais.</p>
+    <p>A visita técnica foi encerrada às 16 horas, sendo registrada uma fotografia de toda a turma após a visita, juntamente com um agradecimento por proporcionar um dia bastante interessante para os alunos devido aos conhecimentos transmitidos pelo Campus Colorado.</p>
+
+    <!-- Galeria de Fotos -->
+    <div class="gallery">
+        <img src="foto1.jpg" alt="Foto 1">
+        <img src="foto2.jpg" alt="Foto 2">
+        <img src="foto3.jpg" alt="Foto 3">
+        <img src="foto4.jpg" alt="Foto 4">
+        <img src="foto5.jpg" alt="Foto 5">
+        <img src="foto6.jpg" alt="Foto 6">
+        <img src="foto7.jpg" alt="Foto 7">
+        <img src="foto8.jpg" alt="Foto 8">
+        <img src="foto9.jpg" alt="Foto 9">
+        <img src="foto10.jpg" alt="Foto 10">
+    </div>
+</body>
+</html>
