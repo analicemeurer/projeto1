@@ -1,69 +1,112 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Relatório de Visita Técnica</title>
-  <style>
-    .relatorio {
-      width: 100%;
-      height: 100%;
-    }
-    .titulo {
-      color: #000;
-      background-color: #fff;
-      font-size: 24px;
-      font-weight: bold;
-    }
-    .galeria {
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      height: 500px;
-      overflow: hidden;
-    }
-    .imagem {
-      width: 200px;
-      height: 200px;
-      margin: 10px;
-    }
-    .imagem:hover {
-      opacity: 0.7;
-    }
-    .next {
-      position: absolute;
-      right: 10px;
-      bottom: 10px;
-    }
-    .prev {
-      position: absolute;
-      left: 10px;
-      bottom: 10px;
-    }
-    .galeria img {
-      cursor: pointer;
-    }
-    .galeria img:hover {
-      transform: scale(1.2);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Visita Técnica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: auto;
+        }
+
+        .modal-content {
+            display: block;
+            margin: auto;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <div class="relatorio">
-    <h1 class="titulo">Relatório de Visita Técnica</h1>
-    <div class="galeria">
-      <img src="fotos/foto1.jpg" class="imagem" alt="Imagem 1">
-      <img src="img/imagem-2.jpg" class="imagem" alt="Imagem 2">
-      <img src="img/imagem-3.jpg" class="imagem" alt="Imagem 3">
-      <img src="img/imagem-4.jpg" class="imagem" alt="Imagem 4">
-      <img src="img/imagem-5.jpg" class="imagem" alt="Imagem 5">
-      <img src="img/imagem-6.jpg" class="imagem" alt="Imagem 6">
-      <img src="img/imagem-7.jpg" class="imagem" alt="Imagem 7">
-      <img src="img/imagem-8.jpg" class="imagem" alt="Imagem 8">
-      <img src="img/imagem-9.jpg" class="imagem" alt="Imagem 9">
-      <img src="img/imagem-10.jpg" class="imagem" alt="Imagem 10">
+    <header>
+        <h1>Relatório de Visita Técnica</h1>
+    </header>
+
+    <div class="container">
+        <div class="gallery">
+            <img src="fotos/foto1.jpg" onclick="openModal('imagem1.jpg')" alt="Imagem 1">
+            <img src="imagem2.jpg" onclick="openModal('imagem2.jpg')" alt="Imagem 2">
+            <img src="imagem3.jpg" onclick="openModal('imagem3.jpg')" alt="Imagem 3">
+            <!-- Adicione as imagens restantes aqui -->
+        </div>
     </div>
-    <a href="#" class="prev"><img src="img/icone-anterior.png" alt="Anterior"></a>
-    <a href="#" class="next"><img src="img/icone-proximo.png" alt="Próximo"></a>
-  </div>
+
+    <div class="modal" id="myModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        function openModal(imageUrl) {
+            var modal = document.getElementById('myModal');
+            var modalImg = document.getElementById('modalImg');
+
+            modal.style.display = 'block';
+            modalImg.src = imageUrl;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
+
