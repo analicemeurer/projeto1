@@ -42,3 +42,16 @@ h1 {
             display: block;
             margin: auto;
         }
+ function openModal(imageUrl) {
+            var modal = document.getElementById('modal');
+            var modalContent = document.getElementById('modal-content');
+
+            modal.style.display = 'block';
+            modalContent.src = imageUrl;
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            var modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
