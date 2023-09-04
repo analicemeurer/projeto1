@@ -1,3 +1,8 @@
+.titulo-com-fundo {
+    background-color: #FF0000; /* Substitua #FF0000 pela cor desejada em formato hexadecimal, RGB ou nome da cor. */
+    color: blue;
+}
+
 .gallery {
     display: flex;
     flex-wrap: wrap;
