@@ -9,7 +9,7 @@ export default [
   },
   {
     src: "./src/lanadelreysummertime.mp3",
-    name: "Summertime Sadness - Anno Domini Beats",
+    name: "Summertime Sadness - Lana Del Rey",
   },
   {
     src: "./src/Shake - Anno Domini Beats.mp3",
