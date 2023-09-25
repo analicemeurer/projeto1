@@ -1,7 +1,7 @@
 export default [
   {
-    src: "./src/Dude - Patrick Patrikios.mp3",
-    name: "Dude - Patrick Patrikios",
+    src: "musica1.mp3",
+    name: "Lana Del Rey - Patrick Patrikios",
   },
   {
     src: "./src/Girl Before A Mirror - Verified Picasso.mp3",
