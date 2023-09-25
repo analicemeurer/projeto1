@@ -149,7 +149,7 @@ body {
     .rotate {
         animation: rotation 8s infinite linear;
     }
-    @keyframes rotation {
+   rotation {
         from {
           transform: rotate(0deg);
         }
@@ -171,7 +171,7 @@ body {
         margin: 0 5px;
         animation: animate 1.4s linear infinite;
     }
-      @keyframes animate {
+       animate {
         50% {
           height: 20%;
           background: #4286f4;
