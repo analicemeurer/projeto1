@@ -4,7 +4,6 @@ let musicas = [
     {titulo:'Música piano', artista:'John Green', source:'musicas/A Brand New Start - TrackTribe (1).mp3', img:'imagens/piano.jpg'}
 ];
 
-// INICIO
 let musica = document.querySelector('audio');
 let musicaIndex = 0;
 
@@ -19,7 +18,6 @@ nomeArtista.textContent = musicas[musicaIndex].artista;
 imagem.setAttribute('src', musicas[musicaIndex].img);
 duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
 
-// EVENTOS
 document.querySelector('.botao-play').addEventListener('click', tocarMusica);
 
 document.querySelector('.botao-pause').addEventListener('click', pausarMusica);
@@ -42,7 +40,6 @@ document.querySelector('.proximo').addEventListener('click', () => {
     renderizarMusica(musicaIndex);
 });
 
-// FUNÇÕES
 
 function renderizarMusica(musicaIndex){
     musica.setAttribute('src', musicas[musicaIndex].source);
