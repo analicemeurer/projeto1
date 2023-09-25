@@ -1,7 +1,7 @@
 export default [
   {
-    src: "./src/glassanimalsheat.mp3",
-    name: "Heat Waves - Glass Animals",
+    src: "./src/calloutmy.mp3",
+    name: "Call Out My Name - Glass Animals",
   },
   {
     src: "lanadelreyss.mp3",
