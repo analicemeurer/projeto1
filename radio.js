@@ -1,111 +1,75 @@
-window.onload = () => {
+const player = document.querySelector("#player");
+const musicName = document.querySelector("#musicName");
+const playPauseButton = document.querySelector("#playPauseButton");
+const prevButton = document.querySelector("#prevButton");
+const nextButton = document.querySelector("#nextButton");
+const currentTime = document.querySelector("#currentTime");
+const duration = document.querySelector("#duration");
+const progressBar = document.querySelector(".progress-bar");
+const progress = document.querySelector(".progress");
 
-    /* ações para o carregamgento dinamico dos elementos da página */
-    const song_img_el = document.getElementById('song-image');
-    const song_title_el = document.getElementById('song-title');
-    const song_artist_el = document.getElementById('song-artist');
-    const song_next_up_el = document.getElementById('song-next-up');
+import songs from "./songs.js";
 
-    /* ações para os botões */
-    const play_btn = document.getElementById('play-btn');
-    const play_btn_icon = document.getElementById('play-icon');
-    const prev_btn = document.getElementById('prev-btn');
-    const next_btn = document.getElementById('next-btn');
+const textButtonPlay = "<i class='bx bx-caret-right'></i>";
+const textButtonPause = "<i class='bx bx-pause'></i>";
 
-    /* ações para o palyer */
-    const audio_player = document.getElementById('music-player');
+let index = 0;
 
-    let current_song_index;
-    let next_song_index;
+prevButton.onclick = () => prevNextMusic("prev");
+nextButton.onclick = () => prevNextMusic();
 
-    /* ações para acessar e mostas informações sobre as músicas */
-    let songs = [{
-            title: 'M1',
-            artist: 'By Mixkit 01',
-            song_path: 'music/m1.mp3',
-            img_path: './assets/images/m1.png'
-        },
-        {
-            title: 'MM2',
-            artist: 'By Mixkit 02',
-            song_path: 'music/m2.mp3',
-            img_path: './assets/images/m2.png'
-        },
-        {
-            title: 'MMM3 ',
-            artist: 'By Mixkit 03',
-            song_path: 'music/m3.mp3',
-            img_path: './assets/images/m3.png'
-        }
+playPauseButton.onclick = () => playPause();
 
-    ]
+const playPause = () => {
+  if (player.paused) {
+    player.play();
+    playPauseButton.innerHTML = textButtonPause;
+  } else {
+    player.pause();
+    playPauseButton.innerHTML = textButtonPlay;
+  }
+};
 
-    play_btn.addEventListener('click', TogglePlaySong);
-    next_btn.addEventListener('click', () => ChangeSong());
-    prev_btn.addEventListener('click', () => ChangeSong(false));
+player.ontimeupdate = () => updateTime();
 
-    /* ação para iniciar o player */
-    InitPlayer();
+const updateTime = () => {
+  const currentMinutes = Math.floor(player.currentTime / 60);
+  const currentSeconds = Math.floor(player.currentTime % 60);
+  currentTime.textContent = currentMinutes + ":" + formatZero(currentSeconds);
 
-    function InitPlayer() {
-        current_song_index = 0;
-        next_song_index = current_song_index + 1;
-        UpdatePlayer();
-    }
+  const durationFormatted = isNaN(player.duration) ? 0 : player.duration;
+  const durationMinutes = Math.floor(durationFormatted / 60);
+  const durationSeconds = Math.floor(durationFormatted % 60);
+  duration.textContent = durationMinutes + ":" + formatZero(durationSeconds);
 
-    /* ação para atualizar o player */
-    function UpdatePlayer() {
-        let song = songs[current_song_index];
+  const progressWidth = durationFormatted
+    ? (player.currentTime / durationFormatted) * 100
+    : 0;
 
-        song_img_el.style = "background-image: url('" + song.img_path + "')";
-        song_title_el.innerText = song.title;
-        song_artist_el.innerText = song.artist;
+  progress.style.width = progressWidth + "%";
+};
 
-        song_next_up_el.innerText = songs[next_song_index].title + " by " + songs[next_song_index].artist;
+const formatZero = (n) => (n < 10 ? "0" + n : n);
 
-        /* define o caminho para acessar a pasta com as musicas  */
-        audio_player.src = song.song_path;
-    }
+progressBar.onclick = (e) => {
+  const newTime = (e.offsetX / progressBar.offsetWidth) * player.duration;
+  player.currentTime = newTime;
+};
 
-    function TogglePlaySong() {
-        if (audio_player.paused) {
-            audio_player.play();
-            play_btn_icon.classList.remove('fa-play');
-            play_btn_icon.classList.add('fa-pause');
-        } else {
-            audio_player.pause();
-            play_btn_icon.classList.add('fa-play');
-            play_btn_icon.classList.remove('fa-pause');
+const prevNextMusic = (type = "next") => {
+  if ((type == "next" && index + 1 === songs.length) || type === "init") {
+    index = 0;
+  } else if (type == "prev" && index === 0) {
+    index = songs.length;
+  } else {
+    index = type === "prev" && index ? index - 1 : index + 1;
+  }
 
-        }
-    }
+  player.src = songs[index].src;
+  musicName.innerHTML = songs[index].name;
+  if (type !== "init") playPause();
 
-    function ChangeSong(next = true) {
-        if (next) {
-            current_song_index++;
-            next_song_index = current_song_index + 1;
+  updateTime();
+};
 
-            if (current_song_index > songs.length - 1) {
-                current_song_index = 0;
-                next_song_index = current_song_index + 1;
-            }
-
-            if (next_song_index > songs.length - 1) {
-                next_song_index = 0;
-            }
-        } else {
-            current_song_index--;
-            next_song_index = current_song_index + 1;
-
-            if (current_song_index < 0) {
-                current_song_index = songs.length - 1;
-                next_song_index = 0;
-            }
-
-        }
-
-        UpdatePlayer();
-        TogglePlaySong();
-    }
-
-}
+prevNextMusic("init");
