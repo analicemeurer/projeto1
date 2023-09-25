@@ -25,7 +25,7 @@ const music_list = [
         img : 'images/stay.png',
         name : 'Call Out My Name',
         artist : 'The Weeknd',
-        music : 'songs/calloutmy.mp3'
+        music : 'calloutmy.mp3'
     },
     {
         img : 'images/fallingdown.jpg',
