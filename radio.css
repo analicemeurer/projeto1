@@ -1,93 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: rgb(192, 221, 228);
-
-  /* Smoothly transition the background color */
-  transition: background-color .5s;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
 }
 
-/* Using flex with the column direction to
-     align items in a vertical direction */
 .player {
-  height: 95vh;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   flex-direction: column;
-  justify-content: center;
-}
-
-.details {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 25px;
-}
-
-.track-art {
-  margin: 20px;
-  height: 200px;
-  width: 200px;
-  background-image: URL("imgRadio/iradio.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 15%;
-}
-
-/* Changing the font sizes to suitable ones */
-.now-playing {
-  font-size: 1rem;
-}
-
-.track-name {
-  font-size: 3rem;
-}
-
-.track-artist {
-  font-size: 1.5rem;
-}
-
-/* Using flex with the row direction to
-     align items in a horizontal direction */
-.buttons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.playpause-track,
-.prev-track,
-.next-track {
-  padding: 25px;
-  opacity: 0.8;
-
-  /* Smoothly transition the opacity */
-  transition: opacity .2s;
-}
-
-/* Change the opacity when mouse is hovered */
-.playpause-track:hover,
-.prev-track:hover,
-.next-track:hover {
-  opacity: 1.0;
-}
-
-/* Define the slider width so that it scales properly */
-.slider_container {
-  width: 75%;
   max-width: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  height: 500px;
+  margin: 0 10px;
+  box-shadow: 0 1px 10px gray;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-/* Modify the appearance of the slider */
-.seek_slider, .volume_slider {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  height: 5px;
-  background: black;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+.logo {
+  background-color: #f7f7f7;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.logo i {
+  font-size: 200px;
+}
+
+#musicName {
+  white-space: nowrap; 
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 30px;
+}
+
+.controls button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.controls i {
+  font-size: 60px;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: #f7f7f7;
+  transition: all .2s;
+}
+
+.controls i:hover {
+  background-color: lightgray;
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.time span {
+  font-size: 22px;
+  color: #333;
+}
+
+.footer {
+  width: 100%;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #ddd;
+  cursor: pointer;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.progress {
+  height: 8px;
+  background-color: #333;
+  border-radius: 5px;
 }
