@@ -1,75 +1,87 @@
-const player = document.querySelector("#player");
-const musicName = document.querySelector("#musicName");
-const playPauseButton = document.querySelector("#playPauseButton");
-const prevButton = document.querySelector("#prevButton");
-const nextButton = document.querySelector("#nextButton");
-const currentTime = document.querySelector("#currentTime");
-const duration = document.querySelector("#duration");
-const progressBar = document.querySelector(".progress-bar");
-const progress = document.querySelector(".progress");
+let musicas = [
+    {titulo:'Guitar solo', artista:'João Tinti', source:'musicas/We Ride! - Reed Mathis.mp3', img:'imagens/rock.jpg'},
+    {titulo:'Samba raiz', artista:'Bossa Nova Brasil', source:'musicas/Ella Vater - The Mini Vandals.mp3', img:'imagens/samba.jpg'},
+    {titulo:'Música piano', artista:'John Green', source:'musicas/A Brand New Start - TrackTribe (1).mp3', img:'imagens/piano.jpg'}
+];
 
-import songs from "./songs.js";
+// INICIO
+let musica = document.querySelector('audio');
+let musicaIndex = 0;
 
-const textButtonPlay = "<i class='bx bx-caret-right'></i>";
-const textButtonPause = "<i class='bx bx-pause'></i>";
+let nomeMusica = document.querySelector('.descricao h2');
+let nomeArtista = document.querySelector('.descricao i');
+let imagem = document.querySelector('img');
+let tempoDecorrido = document.querySelector('.tempo .inicio');
+let duracaoMusica = document.querySelector('.tempo .fim');
 
-let index = 0;
+nomeMusica.textContent = musicas[musicaIndex].titulo;
+nomeArtista.textContent = musicas[musicaIndex].artista;
+imagem.setAttribute('src', musicas[musicaIndex].img);
+duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
 
-prevButton.onclick = () => prevNextMusic("prev");
-nextButton.onclick = () => prevNextMusic();
+// EVENTOS
+document.querySelector('.botao-play').addEventListener('click', tocarMusica);
 
-playPauseButton.onclick = () => playPause();
+document.querySelector('.botao-pause').addEventListener('click', pausarMusica);
 
-const playPause = () => {
-  if (player.paused) {
-    player.play();
-    playPauseButton.innerHTML = textButtonPause;
-  } else {
-    player.pause();
-    playPauseButton.innerHTML = textButtonPlay;
-  }
-};
+musica.addEventListener('timeupdate', atualizarBarra);
 
-player.ontimeupdate = () => updateTime();
+document.querySelector('.anterior').addEventListener('click', () => {
+    musicaIndex--; 
+    if (musicaIndex < 0){
+        musicaIndex = 2;
+    }
+    renderizarMusica(musicaIndex);
+});
 
-const updateTime = () => {
-  const currentMinutes = Math.floor(player.currentTime / 60);
-  const currentSeconds = Math.floor(player.currentTime % 60);
-  currentTime.textContent = currentMinutes + ":" + formatZero(currentSeconds);
+document.querySelector('.proximo').addEventListener('click', () => {
+    musicaIndex++;
+    if (musicaIndex > 2){
+        musicaIndex = 0;
+    }
+    renderizarMusica(musicaIndex);
+});
 
-  const durationFormatted = isNaN(player.duration) ? 0 : player.duration;
-  const durationMinutes = Math.floor(durationFormatted / 60);
-  const durationSeconds = Math.floor(durationFormatted % 60);
-  duration.textContent = durationMinutes + ":" + formatZero(durationSeconds);
+// FUNÇÕES
 
-  const progressWidth = durationFormatted
-    ? (player.currentTime / durationFormatted) * 100
-    : 0;
+function renderizarMusica(musicaIndex){
+    musica.setAttribute('src', musicas[musicaIndex].source);
 
-  progress.style.width = progressWidth + "%";
-};
+    musica.addEventListener('loadeddata', () => {
+        nomeMusica.textContent = musicas[musicaIndex].titulo;
+        nomeArtista.textContent = musicas[musicaIndex].artista;
+        imagem.src = musicas[musicaIndex].img;
+    
+        duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
+    });
 
-const formatZero = (n) => (n < 10 ? "0" + n : n);
+    document.body.append(musica);
+}
 
-progressBar.onclick = (e) => {
-  const newTime = (e.offsetX / progressBar.offsetWidth) * player.duration;
-  player.currentTime = newTime;
-};
+function tocarMusica(){
+    musica.play();
+    document.querySelector('.botao-play').style.display = 'none';
+    document.querySelector('.botao-pause').style.display = 'block';
+}
 
-const prevNextMusic = (type = "next") => {
-  if ((type == "next" && index + 1 === songs.length) || type === "init") {
-    index = 0;
-  } else if (type == "prev" && index === 0) {
-    index = songs.length;
-  } else {
-    index = type === "prev" && index ? index - 1 : index + 1;
-  }
+function pausarMusica(){
+    musica.pause();
+    document.querySelector('.botao-play').style.display = 'block';
+    document.querySelector('.botao-pause').style.display = 'none';
+}
 
-  player.src = songs[index].src;
-  musicName.innerHTML = songs[index].name;
-  if (type !== "init") playPause();
+function segundosParaMinutos(segundos){
+    let campoMinutos = Math.floor(segundos / 60);
+    let campoSegundos = segundos % 60;
 
-  updateTime();
-};
+    if (campoSegundos < 10){
+        campoSegundos = '0'+ campoSegundos;
+    }
+    return `${campoMinutos}:${campoSegundos}`;
+}
 
-
+function atualizarBarra(){
+    let barra = document.querySelector('progress');
+    barra.style.width = Math.floor((musica.currentTime / musica.duration)*100) + '%';
+    tempoDecorrido.textContent = segundosParaMinutos(Math.floor(musica.currentTime));
+}
