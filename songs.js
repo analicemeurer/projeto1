@@ -8,8 +8,8 @@ export default [
     name: "Dark Paradise - Lana Del Rey",
   },
   {
-    src: "./src/Like That - Anno Domini Beats.mp3",
-    name: "Like That - Anno Domini Beats",
+    src: "./src/lanadelreysummertime.mp3",
+    name: "Summertime Sadness - Anno Domini Beats",
   },
   {
     src: "./src/Shake - Anno Domini Beats.mp3",
