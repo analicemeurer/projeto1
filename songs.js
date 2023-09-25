@@ -4,11 +4,11 @@ export default [
     name: "Heat Waves - Glass Animals",
   },
   {
-    src: "./src/lanadelreydarkparadise.mp3",
+    src: "lanadelreyss.mp3",
     name: "Dark Paradise - Lana Del Rey",
   },
   {
-    src: "./src/lanadelreysummertime.mp3",
+    src: "./src/lanadelreyss.mp3",
     name: "Summertime Sadness - Lana Del Rey",
   },
   {
