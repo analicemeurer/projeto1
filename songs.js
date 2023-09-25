@@ -4,8 +4,8 @@ export default [
     name: "Heat Waves - Patrick Patrikios",
   },
   {
-    src: "./src/Girl Before A Mirror - Verified Picasso.mp3",
-    name: "Girl Before A Mirror - Verified Picasso",
+    src: "./src/lanadelreydarkparadise.mp3",
+    name: "Dark Paradise - Verified Picasso",
   },
   {
     src: "./src/Like That - Anno Domini Beats.mp3",
