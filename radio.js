@@ -23,27 +23,69 @@ let updateTimer;
 const music_list = [
     {
         img : 'images/stay.png',
-        name : 'Stay',
-        artist : 'The Kid LAROI, Justin Bieber',
-        music : 'music/stay.mp3'
+        name : 'Call Out My Name',
+        artist : 'The Weeknd',
+        music : 'songs/calloutmy.mp3'
     },
     {
         img : 'images/fallingdown.jpg',
-        name : 'Falling Down',
-        artist : 'Wid Cards',
-        music : 'music/fallingdown.mp3'
+        name : 'Die For You',
+        artist : 'The Weeknd',
+        music : 'songs/dieforyou.mp3'
     },
     {
         img : 'images/faded.png',
-        name : 'Faded',
-        artist : 'Alan Walker',
-        music : 'music/Faded.mp3'
+        name : 'Heat Waves',
+        artist : 'Glass Animals',
+        music : 'songs/heat.mp3'
     },
     {
         img : 'images/ratherbe.jpg',
-        name : 'Rather Be',
-        artist : 'Clean Bandit',
-        music : 'music/Rather Be.mp3'
+        name : 'Dark Paradise',
+        artist : 'Lana Del Rey',
+        music : 'songs/lanadelreydark.mp3'
+    },
+
+    {
+        img : 'images/ratherbe.jpg',
+        name : 'Summertime Sadness',
+        artist : 'Lana Del Rey',
+        music : 'songs/lanadelreyss.mp3'
+    },
+
+    {
+        img : 'images/ratherbe.jpg',
+        name : 'Little Dark Age',
+        artist : '',
+        music : 'songs/littledark.mp3'
+    },
+
+    {
+        img : 'images/ratherbe.jpg',
+        name : 'Softcore',
+        artist : 'The Neighbourhood',
+        music : 'songs/soft.mp3'
+    },
+
+    {
+        img : 'images/ratherbe.jpg',
+        name : 'Starboy',
+        artist : 'The Weeknd',
+        music : 'songs/starboy.mp3'
+    },
+
+    {
+        img : 'images/ratherbe.jpg',
+        name : 'Sweather Weather',
+        artist : 'The Neighbourhood',
+        music : 'songs/swe.mp3'
+    },
+
+    {
+        img : 'images/ratherbe.jpg',
+        name : 'West Coast',
+        artist : 'Lana Del Rey',
+        music : 'songs/westcoast.mp3'
     }
 ];
 
@@ -151,6 +193,13 @@ function seekTo(){
 }
 function setVolume(){
     curr_track.volume = volume_slider.value / 100;
+}
+function playTrack(){
+    curr_track.play();
+    isPlaying = true;
+    track_art.classList.add('rotate');
+    wave.classList.add('loader');
+    playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
 }
 function setUpdate(){
     let seekPosition = 0;
