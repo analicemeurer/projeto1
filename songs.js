@@ -1,6 +1,6 @@
 export default [
   {
-    src: "./src/calloutmy.mp3",
+    src: "songs/calloutmy.mp3",
     name: "Call Out My Name - Glass Animals",
   },
   {
