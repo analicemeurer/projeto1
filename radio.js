@@ -72,4 +72,4 @@ const prevNextMusic = (type = "next") => {
   updateTime();
 };
 
-prevNextMusic("init");
+
