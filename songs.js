@@ -1,11 +1,11 @@
 export default [
   {
-    src: "glassanimalsheat.mp3",
-    name: "Heat Waves - Patrick Patrikios",
+    src: "./src/glassanimalsheat.mp3",
+    name: "Heat Waves - Glass Animals",
   },
   {
     src: "./src/lanadelreydarkparadise.mp3",
-    name: "Dark Paradise - Verified Picasso",
+    name: "Dark Paradise - Lana Del Rey",
   },
   {
     src: "./src/Like That - Anno Domini Beats.mp3",
