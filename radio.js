@@ -31,7 +31,7 @@ const music_list = [
         img : 'images/fallingdown.jpg',
         name : 'Die For You',
         artist : 'The Weeknd',
-        music : 'songs/dieforyou.mp3'
+        music : 'dieforyou.mp3'
     },
     {
         img : 'images/faded.png',
