@@ -12,8 +12,8 @@ export default [
     name: "Summertime Sadness - Lana Del Rey",
   },
   {
-    src: "./src/Shake - Anno Domini Beats.mp3",
-    name: "Shake - Anno Domini Beats",
+    <source src="littledarkage.mp3" type="audio/mpeg">
+    name: "Little Dark Age - Anno Domini Beats",
   },
   {
     src: "./src/Turn Up Burn Up - Diamond Ortiz.mp3",
