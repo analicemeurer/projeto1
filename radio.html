@@ -1,36 +1,38 @@
-<html>
+<html lang="pt-br">
 <head>
-  <title>Music Player</title>
-  <link rel="stylesheet" href="style.css">
-
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="radio.css">
+    <title>Projeto Player Spotify</title>
 </head>
 <body>
-  <div class="player">
-
-    <div class="logo">
-      <i class='bx bx-music'></i>
+    <img src="imagens/rock.jpg">
+    <div class="descricao">
+        <h2>Nome da música</h2>
+        <i>João Tinti</i>
     </div>
-    
-    <span id="musicName"></span>
-    
-    <audio id="player" src=""></audio>
-    <div class="controls">
-      <button id="prevButton"><i class='bx bx-skip-previous'></i></button>
-      <button id="playPauseButton"><i class='bx bx-caret-right'></i></button>
-      <button id="nextButton"><i class='bx bx-skip-next'></i></button>
+    <div class="duracao">
+        <div class="barra">
+            <progress value="0" max="1"></progress>
+            <div class="ponto"></div>
+        </div>
+        <div class="tempo">
+            <p class="inicio">0:00</p>
+            <p class="fim">3:40</p>
+        </div>
     </div>
-    <div class="footer">
-      <div class="progress-bar">
-        <div class="progress"></div>
-      </div>
-      <div class="time">
-        <span id="currentTime">0:00</span>
-        <span id="duration">0:00</span>
-      </div>
+    <div class="player">
+        <i class="fas fa-step-backward setas anterior"></i>
+        <i class="fas fa-play-circle botao-play"></i>
+        <i class="fas fa-pause-circle botao-pause"></i>
+        <i class="fas fa-step-forward setas proximo"></i>
     </div>
-  </div>
-  <script type="module" src="script.js"></script>
+    <audio src="musicas/We Ride! - Reed Mathis.mp3"></audio>
+    <script src="radio.js"></script>
 </body>
 </html>
